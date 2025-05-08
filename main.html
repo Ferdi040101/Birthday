@@ -2,13 +2,15 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <title>Kado Cinta 🎁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun! 🎉</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      overflow: hidden;
-      height: 100vh;
+      overflow: auto;
+      height: auto;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -26,8 +28,8 @@
       z-index: -1;
     }
 
-    /* Overlay gelap */
-    .video-overlay {
+     /* Overlay gelap */
+     .video-overlay {
   z-index: 0;
   pointer-events: none;
   position: absolute;
@@ -35,9 +37,50 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85); /* Lebih gelap */}
+  background: rgba(0, 0, 0, 0.75); /* Lebih gelap */}
 
-    h1, p, .memories-btn {
+    /* Teks di top left */
+    .top-left-text {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 1.0    rem;
+      color: white;
+      z-index: 1;
+      font-weight: normal;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Teks di top right */
+    .top-right-text {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.0rem;
+      color: white;
+      z-index: 1;
+      font-weight: normal;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+     /* Bukuran font lebih kecil di layar kecil */
+    @media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .start-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+
+    h1, p, .start-btn {
       color: white;
       text-align: center;
       z-index: 1;
@@ -45,31 +88,31 @@
     }
 
     h1 {
-      font-size: 2.5rem;
-      animation: fadeInDown 1s ease;
+      font-size: 2.8rem;
+      animation: fadeInDown 1.2s ease;
     }
 
     p {
       font-size: 1.2rem;
-      max-width: 600px;
-      margin-top: 15px;
+      margin-top: 10px;
       animation: fadeInUp 1.5s ease;
     }
 
-    .memories-btn {
+    .start-btn {
       margin-top: 30px;
-      padding: 10px 24px;
-      background: #f26b9c;
-      color: white;
+      padding: 12px 28px;
       font-size: 1rem;
+      background: #ff85a2;
       border: none;
-      border-radius: 25px;
+      border-radius: 30px;
+      color: white;
       cursor: pointer;
-      animation: fadeIn 2.2s ease;
+      animation: fadeIn 2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
-    .memories-btn:hover {
-      background: #e64784;
+    .start-btn:hover {
+      background: #ff6b91;
     }
 
     @keyframes fadeInDown {
@@ -94,22 +137,43 @@
     <!-- Overlay untuk gelapkan video -->
     <div class="video-overlay"></div>
 
-  <h1>Kado Kecil 
-    untuk anak yang sudah tidak kecil lagi</h1>
-  <p>
-    Di dunia yang luas ini, kamu satu-satunya yang selalu membuat aku bersyukur setiap hari.<br>
-    Ini mungkin sederhana, tapi penuh cinta... untukmu.
-  </p>
+      <!-- Teks di top left -->
+  <div class="top-left-text">
+    <span>Delvia Hardaningsih</span>
+  </div>
 
-  <button class="memories-btn" onclick="window.location.href='memories.html'">Click for Our Memories 📸</button>
+      <!-- Teks di top right -->
+      <div class="top-right-text" style="left: auto; right: 20px;">
+        <span style="font-size: 1.0rem; color: white;">May,14,2002</span>
+      </div>
+
+      <div style="padding-top: 100px; text-align: center; z-index: 2; position: relative;">
+        <h1>Happy Level Up Adeek! 🆙</h1>
+        <p>Semoga hari ini ceria seperti senyummu 👺</p>
+        <button class="start-btn" id="startBtn">Click to Start</button>
+      </div>
+
+        <!-- Puisi di bawah -->
+        <div style="max-width: 90%; padding: 50px 15px; margin: auto; text-align: center; z-index: 2; position: relative; color: white;">
+            <p style="font-size: 1.2rem; line-height: 1.6; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);">
+      Di antara lilin dan harapan malam,<br>
+      Ada namamu kusebut diam-diam.<br>
+      Pada angin kupesankan rindu,<br>
+      Semoga bahagiamu selalu bertamu. 💖
+    </p>
+  </div>
 
   <audio id="bg-music" src="lagu_dek_mah.mp3" autoplay loop></audio>
 
   <script>
+    const btn = document.getElementById('startBtn');
     const music = document.getElementById('bg-music');
-    if (localStorage.getItem('musicPlaying') === 'true') {
-      music.play().catch(() => {});
-    }
+
+    btn.addEventListener('click', () => {
+      localStorage.setItem('musicPlaying', 'true');
+      music.play();
+      window.location.href = 'main.html';
+    });
   </script>
 </body>
 </html>
