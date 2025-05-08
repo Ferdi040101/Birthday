@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kado Cinta 🎁</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Overlay gelap */
+    .video-overlay {
+  z-index: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85); /* Lebih gelap */}
+
+    h1, p, .memories-btn {
+      color: white;
+      text-align: center;
+      z-index: 1;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-top: 15px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .memories-btn {
+      margin-top: 30px;
+      padding: 10px 24px;
+      background: #f26b9c;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      animation: fadeIn 2.2s ease;
+    }
+
+    .memories-btn:hover {
+      background: #e64784;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <video class="bg-video" src="lilin.mp4" autoplay loop muted playsinline></video>
+
+    <!-- Overlay untuk gelapkan video -->
+    <div class="video-overlay"></div>
+
+  <h1>Kado Kecil 
+    untuk anak yang sudah tidak kecil lagi</h1>
+  <p>
+    Di dunia yang luas ini, kamu satu-satunya yang selalu membuat aku bersyukur setiap hari.<br>
+    Ini mungkin sederhana, tapi penuh cinta... untukmu.
+  </p>
+
+  <button class="memories-btn" onclick="window.location.href='memories.html'">Click for Our Memories 📸</button>
+
+  <audio id="bg-music" src="lagu_dek_mah.mp3" autoplay loop></audio>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    if (localStorage.getItem('musicPlaying') === 'true') {
+      music.play().catch(() => {});
+    }
+  </script>
+</body>
+</html>
