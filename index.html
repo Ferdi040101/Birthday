@@ -37,19 +37,31 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85); /* Lebih gelap */}
+  background: rgba(0, 0, 0, 0.50); /* Lebih gelap */}
 
     /* Teks di top left */
     .top-left-text {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 1.0    rem;
-      color: white;
-      z-index: 1;
-      font-weight: normal;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    }
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1rem;
+  color: white;
+  z-index: 1;
+  font-weight: normal;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mini-profile-pic {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
 
     /* Teks di top right */
     .top-right-text {
@@ -111,6 +123,40 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
+    .photo-carousel {
+  overflow: hidden;
+  width: 100%;
+  height: 120px;
+  margin: 40px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.carousel-track {
+  display: flex;
+  width: fit-content;
+  animation: scrollPhotos 30s linear infinite;
+}
+
+.carousel-track img {
+  width: 120px;
+  height: 120px;
+  margin: 0 10px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+@keyframes scrollPhotos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
     .start-btn:hover {
       background: #ff6b91;
     }
@@ -138,9 +184,11 @@
     <div class="video-overlay"></div>
 
       <!-- Teks di top left -->
-  <div class="top-left-text">
-    <span>Delvia Hardaningsih</span>
-  </div>
+      <div class="top-left-text">
+        <img src="Profil.jpg" alt="Foto Delvia" class="mini-profile-pic" />
+        <span>Delvia Hardaningsih</span>
+      </div>
+      
 
       <!-- Teks di top right -->
       <div class="top-right-text" style="left: auto; right: 20px;">
@@ -155,16 +203,49 @@
 
         <!-- Puisi di bawah -->
         <div style="max-width: 90%; padding: 50px 15px; margin: auto; text-align: center; z-index: 2; position: relative; color: white;">
-            <p style="font-size: 1.2rem; line-height: 1.6; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);">
-      Sorry untuk seminggu belakang sudah membuat kesal,<br>
-      Itu hanya bagian untuk menunggu kedatangan hari spesial.<br>
-      Daaaannn yaaa,<br>
-      Today is the daaaay.<br>
-      Ituu diatas ada tombol untuk mulai,<br>
-      Yaaa siapaaa tahu ada yang lebih menarik lagi<br>
-      WUTTT WUUTUWWWTUU WWWUTUU WUWUTTT. MAAAP YAAA, WKWKWKWKW💖
-    </p>
+          <p style="font-size: 1.2rem; line-height: 1.6; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);">
+    Sorry untuk seminggu belakang sudah membuat kesal,<br>
+    Itu hanya bagian untuk menunggu kedatangan hari spesial.<br>
+    Daaaannn yaaa,<br>
+    TODAY IS THE DAY.<br>
+    Ituu diatas ada tombol untuk mulai,<br>
+    Yaaa siapaaa tahu ada yang lebih menarik lagi<br>
+    WUTTT WUUTUWWWTUU WWWUTUU WUWUTTT. MAAAP YAAA, WKWKWKWKW💖
+  </p>
+</div>
+
+  <div class="photo-carousel">
+    <div class="carousel-track">
+      <img src="1.jpg" alt="Foto 1" />
+      <img src="2.jpg" alt="Foto 2" />
+      <img src="3.jpg" alt="Foto 3" />
+      <img src="4.jpg" alt="Foto 4" />
+      <img src="5.jpg" alt="Foto 5" />
+      <img src="6.jpg" alt="Foto 6" />
+      <img src="7.jpg" alt="Foto 7" />
+      <img src="8.jpg" alt="Foto 8" />
+      <img src="9.jpg" alt="Foto 9" />
+      <img src="10.jpg" alt="Foto 10" />
+      <img src="11.jpg" alt="Foto 11" />
+      <img src="12.jpg" alt="Foto 12" />
+      <img src="13.jpg" alt="Foto 13" />
+      <!-- Duplikat foto agar bisa looping halus -->
+      <img src="1.jpg" alt="Foto 1" />
+      <img src="2.jpg" alt="Foto 2" />
+      <img src="3.jpg" alt="Foto 3" />
+      <img src="4.jpg" alt="Foto 4" />
+      <img src="5.jpg" alt="Foto 5" />
+      <img src="6.jpg" alt="Foto 6" />
+      <img src="7.jpg" alt="Foto 7" />
+      <img src="8.jpg" alt="Foto 8" />
+      <img src="9.jpg" alt="Foto 9" />
+      <img src="10.jpg" alt="Foto 10" />
+      <img src="11.jpg" alt="Foto 11" />
+      <img src="12.jpg" alt="Foto 12" />
+      <img src="13.jpg" alt="Foto 13" />
+    </div>
   </div>
+  
 
   <audio id="bg-music" src="lagu_dek_mah.mp3" autoplay loop></audio>
 
